@@ -26,6 +26,7 @@ database.ref().on("value", function(snapshot) {
   }else{
     //fetch Firebase data and set it to the local array 
     trainData = snapshot.val().trainData
+    updateTrainArray();
 
     //empty the table
     $("#train-table").empty();
@@ -111,7 +112,22 @@ function getMinAway(time){
 
 }
 
- $('#datetimepicker12').datetimepicker({
-                inline: true,
-                format: 'hh:mm'
-            });
+$('#datetimepicker12').datetimepicker({
+  inline: true,
+  format: 'hh:mm'
+});
+
+function updateTrainArray(){ //updates Array and sends it to Firebase
+  for (var i = 0; i < trainData.length; i++) {
+    
+    trainData[i].nextArrival = getNextArrival(trainData[i].firstTrainTime, trainData[i].frequency);
+    trainData[i].minAway = getMinAway(trainData[i].nextArrival);
+    trainData[i].nextArrival = JSON.stringify(trainData[i].nextArrival);
+
+    //Send local array to Firebase
+    database.ref().set({
+      trainData: trainData
+    })
+
+  }
+}
