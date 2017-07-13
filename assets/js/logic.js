@@ -57,7 +57,7 @@ $(document).on("click","#submit-train", function(){
   var objToAdd = {
     name: $("#train-name").val().trim(),
     destination: $("#destination").val().trim(),
-    firstTrainTime: $("#first-train-time").val().trim(), 
+    firstTrainTime: $("#datetimepicker12")["0"].textContent.substring(0,5), 
     frequency: $("#frequency").val().trim(),
     nextArrival: "",
     minAway: ""
@@ -110,3 +110,8 @@ function getMinAway(time){
   return nextArrival.fromNow();
 
 }
+
+ $('#datetimepicker12').datetimepicker({
+                inline: true,
+                format: 'hh:mm'
+            });

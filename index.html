@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<!-- BootSwatch -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<!-- Date Time Picker -->
+	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
 
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -80,11 +82,11 @@ Train Schedules</h1>
 							</div>
 							<div class="form-group">
 								<label for="train-time">First Train Time (HH:mm - military time)</label>
-								<input class="form-control" id="first-train-time" type="text">
+								<div id="datetimepicker12" id="first-train-time"></div>
 							</div>
 							<div class="form-group">
 								<label for="frequency">Frequency (min)</label>
-								<input class="form-control" id="frequency" type="text">
+								<input class="form-control" id="frequency" type="number">
 							</div>
 							<button class="btn btn-primary" id="submit-train" type="submit">Submit</button>
 						</form>
@@ -94,7 +96,7 @@ Train Schedules</h1>
 
 		</div>
 	</div>
-	
+
 	<!-- Font Awesome -->
 	<script src="https://use.fontawesome.com/9475f99c1a.js"></script>
 	<!-- Moment.js -->
@@ -104,7 +106,9 @@ Train Schedules</h1>
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Bootstrap JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- Date Time Picker -->
+	<script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
 	<script type="text/javascript" src="assets/js/logic.js"></script>
 
 </body>
