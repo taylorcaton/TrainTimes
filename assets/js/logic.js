@@ -39,10 +39,9 @@ database.ref().on("value", function(snapshot) {
       tr.append("<td>"+trainData[i].destination+"</td>");
       tr.append("<td>"+trainData[i].frequency+"</td>");
 
-      trainData[i].nextArrival = getNextArrival(trainData[i].firstTrainTime, trainData[i].frequency);
-      tr.append("<td>" + trainData[i].nextArrival + "</td>");
+      var tempNextArrival = moment(JSON.parse(trainData[i].nextArrival));
 
-      trainData[i].minAway = getMinAway(trainData[i].nextArrival);
+      tr.append("<td>" + tempNextArrival.format("hh:mm A") + "</td>");
       tr.append("<td>" + trainData[i].minAway + "</td>");
 
       $("#train-table").append(tr);
@@ -59,8 +58,15 @@ $(document).on("click","#submit-train", function(){
     name: $("#train-name").val().trim(),
     destination: $("#destination").val().trim(),
     firstTrainTime: $("#first-train-time").val().trim(), 
-    frequency: $("#frequency").val().trim()
+    frequency: $("#frequency").val().trim(),
+    nextArrival: "",
+    minAway: ""
   }
+
+  objToAdd.nextArrival = getNextArrival(objToAdd.firstTrainTime, objToAdd.frequency);
+  objToAdd.minAway = getMinAway(objToAdd.nextArrival);
+
+  objToAdd.nextArrival = JSON.stringify(objToAdd.nextArrival);
 
   $("#train-name").val("");
   $("#destination").val("");
@@ -91,15 +97,16 @@ function getNextArrival(fT, frequency){
 
   }
   
-  return nextArrival.format("hh:mm A")
+  return nextArrival
   
 }
 
 function getMinAway(time){
 
   var currentDate = moment().format("YYYY-MM-DD");
-  var nextArrival = moment(currentDate+" "+time.substring(0, 5));
+  var nextArrival = moment(time);
 
-  return moment().diff(nextArrival, 'minutes') + " min";
+  // return nextArrival.to(moment(), 'minutes') + " min";
+  return nextArrival.fromNow();
 
 }
