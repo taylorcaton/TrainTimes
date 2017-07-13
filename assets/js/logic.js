@@ -27,6 +27,9 @@ database.ref().on("value", function(snapshot) {
     //fetch Firebase data and set it to the local array 
     trainData = snapshot.val().trainData
 
+    //empty the table
+    $("#train-table").empty();
+
     //Draw the the table
     for (var i = 0; i < trainData.length; i++) {
       
@@ -36,12 +39,10 @@ database.ref().on("value", function(snapshot) {
       tr.append("<td>"+trainData[i].destination+"</td>");
       tr.append("<td>"+trainData[i].frequency+"</td>");
 
-      //trainData[i].nextArrival = getNextArrival(trainData[i]);
-      trainData[i].nextArrival = "TBD"
+      trainData[i].nextArrival = getNextArrival(trainData[i].firstTrainTime, trainData[i].frequency);
       tr.append("<td>" + trainData[i].nextArrival + "</td>");
 
-      //trainData[i].minAway = getMinAway(trainData[i]);
-      trainData[i].minAway = "TBD"
+      trainData[i].minAway = getMinAway(trainData[i].nextArrival);
       tr.append("<td>" + trainData[i].minAway + "</td>");
 
       $("#train-table").append(tr);
@@ -61,6 +62,11 @@ $(document).on("click","#submit-train", function(){
     frequency: $("#frequency").val().trim()
   }
 
+  $("#train-name").val("");
+  $("#destination").val("");
+  $("#first-train-time").val("");
+  $("#frequency").val("");
+
   //Add object to local array
   trainData.push(objToAdd);
 
@@ -69,4 +75,31 @@ $(document).on("click","#submit-train", function(){
     trainData: trainData
   })
 
-})
+});
+
+function getNextArrival(fT, frequency){
+
+  var currentDate = moment().format("YYYY-MM-DD");
+  var currentTime = moment();
+  var nextArrival = moment(currentDate+" "+fT);
+
+  if(nextArrival < currentTime){
+    
+    while(nextArrival < currentTime){
+      nextArrival = nextArrival.add(frequency, 'm');
+    }
+
+  }
+  
+  return nextArrival.format("hh:mm A")
+  
+}
+
+function getMinAway(time){
+
+  var currentDate = moment().format("YYYY-MM-DD");
+  var nextArrival = moment(currentDate+" "+time.substring(0, 5));
+
+  return moment().diff(nextArrival, 'minutes') + " min";
+
+}
