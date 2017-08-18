@@ -131,3 +131,5 @@ function updateTrainArray(){ //updates Array and sends it to Firebase
 
   }
 }
+
+setInterval(updateTrainArray, 60000);
