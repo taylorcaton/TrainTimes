@@ -1,0 +1,24 @@
+{
+  "name": "TrainTimes",
+  "version": "1.0.0",
+  "description": "Train Times uses HTML, CSS, javscript, jQuery, and Firebase to keep track of of imaginary trains.Follow the link and add some of your own.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylorcaton/TrainTimes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylorcaton/TrainTimes/issues"
+  },
+  "homepage": "https://github.com/taylorcaton/TrainTimes#readme",
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
