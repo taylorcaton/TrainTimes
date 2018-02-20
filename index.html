@@ -1,116 +1,127 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Train Times</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Train Times</title>
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- BootSwatch -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<!-- Date Time Picker -->
-	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+  <!-- BootSwatch -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Date Time Picker -->
+  <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
+
 <body>
 
 
-	<div class="jumbotron">
-		<div class="container">
-			<h1 class="text-center"><i class="fa fa-train" aria-hidden="true"></i>
-Train Schedules</h1>
-			<p class="text-center"><a href="#addTrain"><button type="button" class="btn btn-primary">Add Train</button></a></p>
-		</div>
-	</div>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="text-center">
+        <i class="fa fa-train" aria-hidden="true"></i>
+        Train Schedules</h1>
+      <p class="text-center">
+        <a href="#addTrain">
+          <button type="button" class="btn btn-primary">Add Train</button>
+        </a>
+      </p>
+    </div>
+  </div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div id="trainTable"></div>
-						<div class="table-responsive">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>Train Name</th>
-										<th>Destination</th>
-										<th>Frequency (min)</th>
-										<th>Next Arival</th>
-										<th>Time Away</th>
-									</tr>
-								</thead>
-								<tbody id="train-table">
-									<tr>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<a name="addTrain"></a>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Add a Train</h3>
-					</div>
-					<div class="panel-body">
-						<form>
-							<div class="form-group">
-								<label for="train-name">Train Name</label>
-								<input class="form-control" id="train-name" type="text">
-							</div>
-							<div class="form-group">
-								<label for="destination">Destination</label>
-								<input class="form-control" id="destination" type="text">
-							</div>
-							<div class="form-group">
-								<label for="train-time">First Train Time (HH:mm - military time)</label>
-								<div id="datetimepicker12" id="first-train-time"></div>
-							</div>
-							<div class="form-group">
-								<label for="frequency">Frequency (min)</label>
-								<input class="form-control" id="frequency" type="number">
-							</div>
-							<button class="btn btn-primary" id="submit-train" type="submit">Submit</button>
-						</form>
-					</div>
-				</div>
-			</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div id="trainTable"></div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency (min)</th>
+                    <th>Next Arival</th>
+                    <th>Time Away</th>
+                  </tr>
+                </thead>
+                <tbody id="train-table">
+                  <tr>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		</div>
-	</div>
+  <a name="addTrain"></a>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add a Train</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="train-name">Train Name</label>
+                <input class="form-control" id="train-name" type="text">
+              </div>
+              <div class="form-group">
+                <label for="destination">Destination</label>
+                <input class="form-control" id="destination" type="text">
+              </div>
+              <div class="form-group">
+                <label for="train-time">First Train Time (HH:mm - military time)</label>
+                <div id="datetimepicker12" id="first-train-time"></div>
+              </div>
+              <div class="form-group">
+                <label for="frequency">Frequency (min)</label>
+                <input class="form-control" id="frequency" type="number">
+              </div>
+              <button class="btn btn-primary" id="submit-train" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-	<!-- Font Awesome -->
-	<script src="https://use.fontawesome.com/9475f99c1a.js"></script>
-	<!-- Moment.js -->
-	<script type="text/javascript" src="assets/js/moment.js"></script>
-	<!-- Firbase -->
-	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<!-- Bootstrap JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- Date Time Picker -->
-	<script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript" src="assets/js/logic.js"></script>
+    </div>
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/9475f99c1a.js"></script>
+  <!-- Moment.js -->
+  <script type="text/javascript" src="assets/js/moment.js"></script>
+  <!-- Firbase -->
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <!-- Date Time Picker -->
+  <script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript" src="assets/js/config.js"></script>
+  <script type="text/javascript" src="assets/js/logic.js"></script>
 
 </body>
+
 </html>
